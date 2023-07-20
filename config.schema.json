@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "SengledHub",
   "pluginType": "platform",
   "singular": true,
   "schema": {
