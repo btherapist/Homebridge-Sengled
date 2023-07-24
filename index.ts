@@ -26,6 +26,10 @@ class SengledPlatform implements DynamicPlatformPlugin {
     this.log = log;
     this.api = api;
 
+    if (!config.username || !config.password) {
+      throw new Error('Invalid configuration: username and password are required.');
+    }
+
     this.username = config.username;
     this.password = config.password;
 
@@ -33,9 +37,8 @@ class SengledPlatform implements DynamicPlatformPlugin {
       this.login()
         .then(() => this.discoverDevices())
         .then(() => this.configureAccessories())
-        .catch((error: any) => {
-          this.log.error('Error during setup:', error as Error);
-          // Using type assertion 'as Error' to treat 'error' as type 'Error'
+        .catch((error: Error) => {
+          this.log.error('Error during setup:', error);
         });
     });
   }
@@ -51,7 +54,6 @@ class SengledPlatform implements DynamicPlatformPlugin {
       // You may want to persist this token securely for future use
     } catch (error) {
       throw new Error('Failed to log in to Sengled service: ' + (error as Error).message);
-      // Using type assertion 'as Error' to treat 'error' as type 'Error'
     }
   }
 
@@ -74,7 +76,6 @@ class SengledPlatform implements DynamicPlatformPlugin {
       // You can process and filter the devices as needed
     } catch (error) {
       throw new Error('Failed to fetch devices from Sengled service: ' + (error as Error).message);
-      // Using type assertion 'as Error' to treat 'error' as type 'Error'
     }
   }
 
@@ -102,3 +103,4 @@ class SengledPlatform implements DynamicPlatformPlugin {
 export default (api: API) => {
   api.registerPlatform('homebridge-sengled-platform', 'SengledPlatform', SengledPlatform);
 };
+
