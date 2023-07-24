@@ -10,11 +10,10 @@
     "strict": true,
     "esModuleInterop": true,
     "noImplicitAny": false,
-    "resolveJsonModule": true, // Optional: If you use JSON files
-    "allowJs": true // Optional: If you have JavaScript files
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true // Add this option
   },
   "include": ["src/"],
   "exclude": ["src/**/*.spec.ts"]
 }
-
-

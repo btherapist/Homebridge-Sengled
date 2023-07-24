@@ -1,5 +1,5 @@
 import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig } from 'homebridge';
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 interface SengledDevice {
   id: string;
@@ -92,7 +92,8 @@ class SengledPlatform implements DynamicPlatformPlugin {
   }
 
   // Required method for the DynamicPlatformPlugin interface
-  configureAccessory(accessory: PlatformAccessory): void {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  configureAccessory(_accessory: PlatformAccessory): void {
     // This method is called for each accessory cached by Homebridge
     // You can choose to handle the cached accessory here if needed
     // For example, you might want to update the accessory's characteristics or services
@@ -103,4 +104,3 @@ class SengledPlatform implements DynamicPlatformPlugin {
 export default (api: API) => {
   api.registerPlatform('homebridge-sengled-platform', 'SengledPlatform', SengledPlatform);
 };
-
