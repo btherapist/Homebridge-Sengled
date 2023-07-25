@@ -1,6 +1,5 @@
 {
-  "private": false,
-  "displayName": "SengledHub",
+"displayName": "SengledHub",
   "name": "@btherapist/sengled-hub",
   "version": "1.0.0",
   "description": "A short description about what your plugin does.",
