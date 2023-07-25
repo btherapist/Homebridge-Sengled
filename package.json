@@ -1,5 +1,5 @@
 {
-  "private": false,
+  "private": true,
   "displayName": "SengledHub",
   "name": "@btherapist/sengled-hub",
   "version": "1.0.0",
