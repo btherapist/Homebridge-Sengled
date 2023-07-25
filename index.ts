@@ -1,11 +1,8 @@
 import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig } from 'homebridge';
 import axios, { AxiosResponse } from 'axios';
+import { SengledDevice } from './SengledDevice';
 
-interface SengledDevice {
-  id: string;
-  name: string;
-  // Add more device properties as needed
-}
+export type NewType = string;
 
 interface SengledAPIResponse {
   devices: SengledDevice[];
